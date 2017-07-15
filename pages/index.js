@@ -4,12 +4,6 @@ import Modal from '../components/modal'
 import 'isomorphic-fetch'
 
 export default class extends React.Component {
-  static async getInitialProps () {
-    return {
-      photos: await getGifNames(),
-    }
-  }
-
   constructor (props) {
     super(props)
     this.onKeyDown = this.onKeyDown.bind(this)
@@ -99,18 +93,4 @@ export default class extends React.Component {
       </div>
     )
   }
-}
-
-
-async function getGithubProfileIds() {
-  const res = await fetch('https://api.github.com/users')
-  const result = await res.json()
-  return result.map((info) => info.id)
-}
-
-async function getGifNames() {
-  const res = await fetch('https://api.gfycat.com/v1/gfycats/trending?count=20')
-  const result = await res.json()
-
-  return result.gfycats.map((info) => info.gfyName)
 }
