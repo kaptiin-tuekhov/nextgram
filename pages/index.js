@@ -1,9 +1,16 @@
 import React from 'react'
 import Router from 'next/router'
 import DropzoneS3Uploader from 'react-dropzone-s3-uploader'
+import { Circle } from 'react-progressbar.js'
 import Modal from '../components/modal'
 import 'isomorphic-fetch'
 
+const Display = ({progress, uploadedFiles}) => (
+  <div>{
+    progress ? <Circle progress={progress / 100} />
+    : !uploadedFiles.length ? <p>Upload Some Files</p>
+    : <p>Processing Files</p>
+  }</div>)
 export default class extends React.Component {
   constructor (props) {
     super(props)
@@ -39,6 +46,7 @@ export default class extends React.Component {
     // const { url, photos } = this.props
     return (
       <DropzoneS3Uploader s3Url='http://np-dicom-images.s3-us-east-2.amazonaws.com'>
+        <Display />
         {/*  <div className='list'>
           {
           url.query.photoId &&
