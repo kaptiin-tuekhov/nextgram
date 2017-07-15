@@ -36,18 +36,18 @@ export default class extends React.Component {
   }
 
   render () {
-    const { url, photos } = this.props
-
+    // const { url, photos } = this.props
     return (
-      <div className='list'>
-        {
+      <DropzoneS3Uploader s3Url='http://np-dicom-images.s3-us-east-2.amazonaws.com'>
+        {/*  <div className='list'>
+          {
           url.query.photoId &&
             <Modal
               id={url.query.photoId}
               onDismiss={() => this.dismissModal()}
             />
         }
-        {
+          {
           photos.map((id) => (
             <div key={id} className='photo'>
               <a
@@ -60,7 +60,7 @@ export default class extends React.Component {
             </div>
           ))
         }
-        <style jsx>{`
+          <style jsx>{`
           .list {
             padding: 50px;
             text-align: center;
@@ -91,7 +91,8 @@ export default class extends React.Component {
             borderColor: blue;
           }
         `}</style>
-      </div>
+        </div>  */}
+      </DropzoneS3Uploader>
     )
   }
 }
