@@ -10,7 +10,8 @@
   },
   "devDependencies": {
     "babel-eslint": "7.0.0",
-    "standard": "8.4.0"
+    "standard": "8.4.0",
+    "xo": "^0.18.2"
   },
   "standard": {
     "parser": "babel-eslint"
