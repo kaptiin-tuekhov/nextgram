@@ -1,5 +1,6 @@
 import React from 'react'
 import Router from 'next/router'
+import DropzoneS3Uploader from 'react-dropzone-s3-uploader'
 import Modal from '../components/modal'
 import 'isomorphic-fetch'
 
